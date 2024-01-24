@@ -1,0 +1,17 @@
+*{ /* Global selector*/
+    background-color: #15202b   ; /* This is a coment in CSS*/
+
+}
+p{ /* Element selector*/
+    font-size: 25px;
+    color: white;
+}
+#usertag{ /*ID selector*/
+    color: grey;
+}
+.colortext1{ /*Class selector*/
+    color: rgb(44, 36, 36);
+}
+.fontstyle{
+    font-style: italic;
+}
