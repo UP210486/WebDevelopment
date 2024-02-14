@@ -1,17 +1,138 @@
 *{ /* Global selector*/
-    background-color: #15202b   ; /* This is a coment in CSS*/
-
-}
-p{ /* Element selector*/
-    font-size: 25px;
+    background-color: #15202b ; /* This is a coment in CSS*/
+    font-family: 'Times New Roman', Times, serif;
+    padding: 0;
+    margin: 0;
     color: white;
 }
+a{ /* Element selector*/
+    color: blue;
+    text-decoration: none;
+}
+
 #usertag{ /*ID selector*/
     color: grey;
 }
 .colortext1{ /*Class selector*/
     color: rgb(44, 36, 36);
 }
+img, svg{
+    width: 75%;
+    max-width: 100%;
+    max-height: auto;
+}
+
+.Greytext{
+    color: #6E7886 ;
+}
 .fontstyle{
     font-style: italic;
 }
+
+.FullTweetContainer{
+    border-bottom: solid gray 0.5px;
+    width: 650px;
+    height: 400px;
+
+    display: grid;
+    grid-template-columns: repeat(12,1fr);
+    grid-template-rows: repeat(12,1fr);
+}
+
+.FullTweetContainer * {
+    background-color: transparent;
+}
+
+.FullTweetContainer:hover{
+    cursor:pointer;
+    background-color: rgba(110, 120, 134, 0.1);
+    border-radius: 10px;
+    transition-duration: 0.5s;
+}
+
+.TweetBody{
+    grid-column: 1/13;
+    grid-column: 1/12;
+
+    display: grid;
+    grid-template-columns: 75px 1fr ;
+    grid-template-rows: 1fr;
+}
+.TweetBody p{
+    padding: 7px 0px;
+}
+.TweetContent img{
+    width: 90%;
+    border-radius: 20px;
+    border-style: solid ;
+    border-width: 2px;
+    border-color: grey;
+}
+
+.PorfilePhoto > img{
+    border-radius: 50%;
+    margin: 10px;
+}
+
+.TweetIcons{
+    grid-column: 1/13;
+    grid-row: 2/13;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+.TweetIcons .icon:nth-child(1):hover svg{
+    background-color: rgba(29, 161, 242, 0.4);
+    fill: rgba(29, 161, 242, 0.4) ;
+    color: rgba(29, 161, 242, 0.4) ;
+    border-radius: 60%;
+    transition-duration: 0.5s;
+}
+.TweetIcons .icon:nth-child(1):hover span{
+    background-color: rgba(29, 161, 242, 0.4);
+    transition-duration: 0.5s;
+}
+.TweetIcons .icon:nth-child(2):hover svg{
+    background-color: rgba(24, 176, 95,0.4);
+    border-radius: 50%;
+    transition-duration: 0.5;
+}
+ 
+.TweetIcons .icon:nth-child(2):hover span{
+    background-color: rgba(24, 176, 95,0.4);
+    transition-duration: 0.5;
+}
+.TweetIcons .icon:nth-child(3):hover svg{
+    background-color: rgba(224, 36, 94, 0.4);
+    border-radius: 50%;
+    transition-duration: 0.5s;
+}
+.TweetIcons .icon:nth-child(3):hover span{
+    background-color: rgba(224, 36, 94, 0.4);
+    transition-duration: 0.5s;
+}
+.TweetIcons .icon:nth-child(4):hover svg{
+    background-color: rgba(30, 146, 221, 0.4);
+    border-radius: 50%;
+    transition-duration: 0.5s;
+}
+.icon{
+   
+    width: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.icon svg{
+    width: 30%;
+    padding: 5px;
+    margin-right: 10px;
+    fill:gray;    
+}
+.icon span{
+    font-size: small;
+    color: grey;
+}
+
+
