@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Información de Usuario</title>
+</head>
+<body>
+    <h1>Información de Usuario</h1>
+    <label for="usuarios">Seleccione un usuario:</label>
+    <select id="usuarios">
+        <option value="1">Usuario 1</option>
+        <option value="2">Usuario 2</option>
+        <option value="3">Usuario 3</option>
+    </select>
+    <div id="infoUsuario"></div>
+    <button id="mostrarTareas">Mostrar Tareas</button>
+    <div id="listaTareas"></div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const selectUsuario = document.getElementById('usuarios');
+            const infoUsuario = document.getElementById('infoUsuario');
+            const btnMostrarTareas = document.getElementById('mostrarTareas');
+            const listaTareas = document.getElementById('listaTareas');
+
+            const usuarios = {
+                1: { nombre: 'Usuario 1', edad: 25, correo: 'usuario1@example.com' },
+                2: { nombre: 'Usuario 2', edad: 30, correo: 'usuario2@example.com' },
+                3: { nombre: 'Usuario 3', edad: 35, correo: 'usuario3@example.com' }
+            };
+
+            // Función para mostrar la información del usuario seleccionado
+            function mostrarInfoUsuario(id) {
+                const usuario = usuarios[id];
+                infoUsuario.innerHTML = `
+                    <h2>Información del Usuario</h2>
+                    <p><strong>Nombre:</strong> ${usuario.nombre}</p>
+                    <p><strong>Edad:</strong> ${usuario.edad}</p>
+                    <p><strong>Correo:</strong> ${usuario.correo}</p>
+                `;
+            }
+
+            // Evento cuando se cambia el usuario seleccionado
+            selectUsuario.addEventListener('change', function() {
+                const userId = parseInt(this.value);
+                mostrarInfoUsuario(userId);
+            });
+
+            // Función para mostrar las tareas del usuario
+            function mostrarTareasUsuario(id) {
+                // Simulación de lista de tareas para el usuario
+                const tareas = [
+                    { id: 1, titulo: 'Tarea 1', descripcion: 'Descripción de la Tarea 1' },
+                    { id: 2, titulo: 'Tarea 2', descripcion: 'Descripción de la Tarea 2' },
+                    { id: 3, titulo: 'Tarea 3', descripcion: 'Descripción de la Tarea 3' }
+                ];
+
+                // Filtrar las tareas por el usuario seleccionado
+                const tareasUsuario = tareas.filter(tarea => tarea.id === id);
+
+                // Mostrar las tareas
+                listaTareas.innerHTML = `<h2>Tareas del Usuario</h2>`;
+                if (tareasUsuario.length > 0) {
+                    listaTareas.innerHTML += '<ul>';
+                    tareasUsuario.forEach(tarea => {
+                        listaTareas.innerHTML += `<li><strong>${tarea.titulo}:</strong> ${tarea.descripcion}</li>`;
+                    });
+                    listaTareas.innerHTML += '</ul>';
+                } else {
+                    listaTareas.innerHTML += '<p>No hay tareas para este usuario.</p>';
+                }
+            }
+
+            // Evento al hacer clic en el botón de mostrar tareas
+            btnMostrarTareas.addEventListener('click', function() {
+                const userId = parseInt(selectUsuario.value);
+                mostrarTareasUsuario(userId);
+            });
+
+            // Mostrar información del usuario por defecto al cargar la página
+            mostrarInfoUsuario(parseInt(selectUsuario.value));
+        });
+    </script>
+</body>
+</html>
